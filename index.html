@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tactical Biomechanics — Narrative Visualization</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand-block">
+                <div class="brand-dot">TB</div>
+                <div>
+                    <h2>Tennis Atlas</h2>
+                    <p>Performance Storyboard</p>
+                </div>
+            </div>
+
+            <nav class="side-nav">
+                <button class="nav-link active" data-step-link="intro">Overview</button>
+                <button class="nav-link" data-step-link="gutcheck">Data Authenticity</button>
+                <button class="nav-link" data-step-link="correlation">Metric Correlation</button>
+                <button class="nav-link" data-step-link="q1">Surface Biomechanics</button>
+                <button class="nav-link" data-step-link="q2">Lefty Advantage</button>
+                <button class="nav-link" data-step-link="q3">Geography</button>
+                <button class="nav-link" data-step-link="conclusion">Summary</button>
+            </nav>
+        </aside>
+
+        <div class="workspace">
+            <header class="topbar">
+                <div class="topbar-title">
+                    <strong>Tennis Atlas Insights</strong>
+                    <span>ATP analysis of surfaces, pressure, and global winner distribution</span>
+                </div>
+            </header>
+
+            <section class="hero-panel">
+                <p class="eyebrow">DATA UNDERSTANDING & STORYTELLING</p>
+                <h1>Serve efficiency, clutch pressure, and global talent patterns in elite tennis.</h1>
+                <p class="subtitle">An interactive visual narrative transformed from your assignment notebook into a
+                    modern, dashboard-style web experience.</p>
+
+                <div class="stat-cards">
+                    <article class="stat-card">
+                        <span>Records</span>
+                        <strong id="stat-records">--</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Median 1st Serve Eff.</span>
+                        <strong id="stat-median-serve">--</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Countries (Winners)</span>
+                        <strong id="stat-countries">--</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Top Winner Nation</span>
+                        <strong id="stat-top-country">--</strong>
+                    </article>
+                </div>
+            </section>
+
+            <main class="scrolly">
+                <div class="scrolly-text">
+                    <section class="step" data-step="intro">
+                        <h3>Research Question & Motivation</h3>
+                        <p>How do serve biomechanics and player handedness influence match outcomes across surfaces,
+                            and how is talent distributed globally?</p>
+                    </section>
+                    <section class="step" data-step="gutcheck">
+                        <h3>Data Authenticity (Gut Check)</h3>
+                        <p>Do historically dominant players appear at the top of winner counts in 2020-2023?</p>
+                    </section>
+                    <section class="step" data-step="correlation">
+                        <h3>Performance Metrics Correlation</h3>
+                        <p>Explore which performance variables move together and which are weakly related.</p>
+                    </section>
+                    <section class="step" data-step="q1">
+                        <h3>Biomechanics of Surface Dominance</h3>
+                        <p>First Serve Efficiency varies by surface. Compare all players vs Top-20 players.</p>
+                    </section>
+                    <section class="step" data-step="q2">
+                        <h3>The Lefty Advantage</h3>
+                        <p>Explore break-point performance against left- vs right-handed opponents.</p>
+                    </section>
+                    <section class="step" data-step="q3">
+                        <h3>Geographical Evolution of Talent</h3>
+                        <p>See where professional winners and players come from and how this changed over decades.</p>
+                    </section>
+                    <section class="step" data-step="conclusion">
+                        <h3>Takeaways & Credits</h3>
+                        <p>Summary of findings and acknowledgements.</p>
+                    </section>
+                </div>
+
+                <div class="scrolly-graphic" id="viz">
+                    <div id="viz-canvas"></div>
+                    <div id="controls" class="controls">
+                        <label>Player subset:
+                            <select id="subset-select">
+                                <option value="all">All Players</option>
+                                <option value="top20">Top 20</option>
+                            </select>
+                        </label>
+                        <label>Surface:
+                            <select id="surface-select">
+                                <option value="All">All</option>
+                                <option value="Grass">Grass</option>
+                                <option value="Clay">Clay</option>
+                                <option value="Hard">Hard</option>
+                            </select>
+                        </label>
+                        <label>Q2 metric:
+                            <select id="metric-select">
+                                <option value="bp_save_rate">Break Point Save %</option>
+                                <option value="first_serve_efficiency">1st Serve Efficiency</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
