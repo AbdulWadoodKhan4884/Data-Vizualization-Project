@@ -427,12 +427,12 @@ async function loadData() {
         geoWins,
         geoPlayers
     ] = await Promise.all([
-        fetch('data/top_winners.json').then(res => res.json()),
-        fetch('data/correlation.json').then(res => res.json()),
-        fetch('data/serve_efficiency_points.json').then(res => res.json()),
-        fetch('data/lefty_stats.json').then(res => res.json()),
-        fetch('data/geo_wins.json').then(res => res.json()),
-        fetch('data/geo_players.json').then(res => (res.ok ? res.json() : []))
+        fetch('top_winners.json').then(res => res.json()),
+        fetch('correlation.json').then(res => res.json()),
+        fetch('serve_efficiency_points.json').then(res => res.json()),
+        fetch('lefty_stats.json').then(res => res.json()),
+        fetch('geo_wins.json').then(res => res.json()),
+        fetch('geo_players.json').then(res => (res.ok ? res.json() : []))
     ]);
 
     datasets.topWinners = topWinners;
